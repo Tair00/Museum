@@ -36,10 +36,9 @@
         android:layout_width="300dp"
         android:layout_height="48dp"
         android:hint="Email или имя пользователя"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
         android:background="@drawable/edit_text_background"
-        android:drawableStart="@drawable/ic_user"
+        android:drawableStart="@drawable/user"
+        android:paddingStart="16dp"
         android:drawablePadding="8dp"
         android:inputType="text"
         android:layout_marginBottom="16dp" />
@@ -49,13 +48,13 @@
         android:layout_width="300dp"
         android:layout_height="48dp"
         android:hint="Пароль"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
         android:background="@drawable/edit_text_background"
-        android:drawableStart="@drawable/ic_lock"
+        android:drawableStart="@drawable/lock"
+        android:paddingStart="16dp"
         android:drawablePadding="8dp"
         android:inputType="textPassword"
         android:layout_marginBottom="24dp" />
+
 
     <Button
         android:id="@+id/btnLogin"
