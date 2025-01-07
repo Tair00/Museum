@@ -71,7 +71,7 @@
                         app:layout_constraintVertical_bias="0.814"
                         app:layout_constraintHorizontal_bias="0.052"
                         app:srcCompat="@drawable/like_btn"
-                        app:tint="@color/mainColor" />
+                    />
 
                     <ImageView
                         android:id="@+id/star"
@@ -84,7 +84,7 @@
                         app:layout_constraintVertical_bias="0.814"
                         app:layout_constraintStart_toStartOf="parent"
                         app:srcCompat="@drawable/star"
-                        app:tint="@color/mainColor" />
+                         />
 
                     <TextView
                         android:id="@+id/starTxt"
