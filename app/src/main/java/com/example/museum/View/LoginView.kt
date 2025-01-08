@@ -4,5 +4,5 @@ interface LoginView {
     fun showLoading()
     fun hideLoading()
     fun showError(message: String)
-    fun navigateToHomeScreen()
+    fun navigateToHomeScreen(token: String)
 }
