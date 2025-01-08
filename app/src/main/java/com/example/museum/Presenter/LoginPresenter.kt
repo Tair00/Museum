@@ -18,7 +18,7 @@ class LoginPresenter(
             val result = loginUseCase.execute(LoginRequest(usernameOrEmail, password))
             view.hideLoading()
             when (result) {
-                is LoginResult.Success -> view.navigateToHomeScreen()
+                is LoginResult.Success -> view.navigateToHomeScreen(result.token)
                 is LoginResult.Error -> view.showError(result.message)
             }
         }

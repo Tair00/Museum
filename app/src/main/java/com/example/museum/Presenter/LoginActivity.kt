@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.museum.Domain.LoginUseCase
 import com.example.museum.R
+import com.example.museum.View.HomeActivity
 import com.example.museum.View.LoginView
 import com.example.museum.View.UserRepositoryImpl
 
@@ -49,8 +50,12 @@ class LoginActivity : AppCompatActivity(), LoginView {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
-    override fun navigateToHomeScreen() {
-        startActivity(Intent(this, LoginActivity::class.java))
+    override fun navigateToHomeScreen(token: String) {
+        // Переход в следующую активити с передачей токена
+        val intent = Intent(this, HomeActivity::class.java).apply {
+            putExtra("TOKEN", token)
+        }
+        startActivity(intent)
         finish()
     }
 }
