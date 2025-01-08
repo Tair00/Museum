@@ -1,0 +1,18 @@
+package com.example.museum.Domain
+
+import com.example.museum.Model.LoginRequest
+import com.example.museum.Model.LoginResult
+
+class LoginUseCase(private val repository: UserRepository) {
+    suspend fun execute(loginRequest: LoginRequest): LoginResult {
+        return if (loginRequest.usernameOrEmail.isNotEmpty() && loginRequest.password.isNotEmpty()) {
+            repository.login(loginRequest)
+        } else {
+            LoginResult.Error("Заполните все поля")
+        }
+    }
+}
+
+interface UserRepository {
+    suspend fun login(loginRequest: LoginRequest): LoginResult
+}
