@@ -3,6 +3,7 @@ package com.example.museum.Presenter
 import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -12,6 +13,7 @@ import com.example.museum.R
 import com.example.museum.View.HomeActivity
 import com.example.museum.View.LoginView
 import com.example.museum.View.UserRepositoryImpl
+import kotlin.math.log
 
 class LoginActivity : AppCompatActivity(), LoginView {
 
@@ -48,12 +50,13 @@ class LoginActivity : AppCompatActivity(), LoginView {
 
     override fun showError(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+        Log.e("LoginActivity", "Error occurred: $message")
     }
 
     override fun navigateToHomeScreen(token: String) {
         // Переход в следующую активити с передачей токена
         val intent = Intent(this, HomeActivity::class.java).apply {
-            putExtra("TOKEN", token)
+            putExtra("access_token", token)
         }
         startActivity(intent)
         finish()
