@@ -13,6 +13,4 @@ class LoginUseCase(private val repository: UserRepository) {
     }
 }
 
-interface UserRepository {
-    suspend fun login(loginRequest: LoginRequest): LoginResult
-}
+

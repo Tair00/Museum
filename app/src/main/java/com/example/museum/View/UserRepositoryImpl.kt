@@ -8,13 +8,20 @@ import com.example.museum.Network.RetrofitClient
 class UserRepositoryImpl : UserRepository {
     override suspend fun login(loginRequest: LoginRequest): LoginResult {
         return try {
-            // Обращение к серверу через Retrofit
             val response = RetrofitClient.apiService.login(loginRequest)
-            LoginResult.Success(response.accessToken)
+            if (response.isSuccessful) {
+                val body = response.body()
+                // Проверяем, что тело ответа не null и содержит `access_token`
+                if (body != null && body.accessToken != null) {
+                    LoginResult.Success(body.accessToken)
+                } else {
+                    LoginResult.Error("Отсутствует access_token в ответе сервера")
+                }
+            } else {
+                LoginResult.Error("Ошибка сервера: ${response.message()}")
+            }
         } catch (e: Exception) {
-            // Обработка ошибок
             LoginResult.Error("Ошибка подключения: ${e.message}")
         }
     }
 }
-
